@@ -5,14 +5,8 @@
 <!ENTITY RFC4033 SYSTEM "https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.4033.xml">
 <!ENTITY RFC4034 SYSTEM "https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.4034.xml">
 <!ENTITY RFC4035 SYSTEM "https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.4035.xml">
-<!ENTITY RFC4357 SYSTEM "https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.4357.xml">
-<!ENTITY RFC4490 SYSTEM "https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.4490.xml">
-<!ENTITY RFC4491 SYSTEM "https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.4491.xml">
 <!ENTITY RFC5155 SYSTEM "https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.5155.xml">
 <!ENTITY RFC4509 SYSTEM "https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.4509.xml">
-<!ENTITY RFC5830 SYSTEM "https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.5830.xml">
-<!ENTITY RFC5831 SYSTEM "https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.5831.xml">
-<!ENTITY RFC5832 SYSTEM "https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.5832.xml">
 <!ENTITY RFC5933 SYSTEM "https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.5933.xml">
 <!ENTITY RFC6986 SYSTEM "https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.6986.xml">
 <!ENTITY RFC7091 SYSTEM "https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.7091.xml">
@@ -144,7 +138,7 @@
 
 The following DNSKEY RR stores a DNS zone key for example.net:
 
-			example.net. 86400 IN DNSKEY 256 3 TBA1 TODO
+      example.net. 86400 IN DNSKEY 256 3 TBA1 TODO
 ]]></artwork>
 	</figure>
 	</section>
@@ -325,9 +319,6 @@ hash = GOSTR3411(data)
 	&RFC4033;
 	&RFC4034;
 	&RFC4035;
-	&RFC4357;
-	&RFC4490;
-	&RFC4491;
 	&RFC5155;
 	&RFC6986;
 	&RFC7091;
@@ -335,9 +326,6 @@ hash = GOSTR3411(data)
 	</references>
 	<references title="Informative References">
 	&RFC4509;
-	&RFC5830;
-	&RFC5831;
-	&RFC5832;
 	&RFC5933;
 	</references>
 	</back>
