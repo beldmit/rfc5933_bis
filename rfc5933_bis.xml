@@ -34,7 +34,19 @@
 	<email>beldmit@gmail.com</email>
 	</address>
 	</author>
-
+	<author fullname="Vasily Dolmatov" initials="V." surname="Dolmatov" role="editor">
+      <organization>JSC "NPK Kryptonite"</organization>
+      <address>
+        <postal>
+          <street>Spartakovskaya sq., 14, bld 2, JSC "NPK Kryptonite"</street>
+          <city>Moscow</city>
+          <region/>
+          <code>105082</code>
+          <country>Russian Federation</country>
+        </postal>
+        <email>vdolmatov@gmail.com</email>
+      </address>
+    </author>
 	<date month="September" year="2019"/>
 	<abstract><t>
    This document describes how to produce digital signatures and hash
