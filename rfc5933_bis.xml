@@ -124,12 +124,13 @@
 	<t>
    To make this encoding from the wire format of a GOST public key with
    the parameters used in this document, prepend the 64 octets of key
-   data with the following 42-byte sequence:</t>
+   data with the following 32-byte sequence:</t>
 
 	<t><list hangIndent="3" style="hanging"><t>
-0x30 0x68 0x30 0x21 0x06 0x08 0x2a 0x85 0x03 0x07 0x01 0x01 0x01 0x01
-0x30 0x15 0x06 0x09 0x2a 0x85 0x03 0x07 0x01 0x02 0x01 0x01 0x01 0x06
-0x08 0x2a 0x85 0x03 0x07 0x01 0x01 0x02 0x02 0x03 0x43 0x00 0x04 0x40
+0x30 0x5e 0x30 0x17 0x06 0x08 0x2a 0x85
+0x03 0x07 0x01 0x01 0x01 0x01 0x30 0x0b
+0x06 0x09 0x2a 0x85 0x03 0x07 0x01 0x02
+0x01 0x01 0x01 0x03 0x43 0x00 0x04 0x40
 </t>
 
 	</list>
@@ -139,18 +140,20 @@
 
 	<section title="GOST DNSKEY RR Example" ><t>
    Given a private key with the following value (the value of the
-   GostAsn1 field is split here into two lines to simplify reading; in
+   Gost12Asn1 field is split here into two lines to simplify reading; in
    the private key file, it must be in one line):</t>
 
-	<figure><artwork><![CDATA[
-   Private-key-format: v1.2
-   Algorithm: TBA1 (ECC-GOST)
-   GostAsn1: MEUCAQAwHAYGKoUDAgITMBIGByqFAwICIwEGByqFAwICHgEEIgQg/9M
-             iXtXKg9FDXDN/R9CmVhJDyuzRAIgh4tPwCu4NHIs=
+<figure><artwork><![CDATA[
+Private-key-format: v1.2
+Algorithm: 23 (ECC-GOST12)
+Gost12Asn1: MD4CAQAwFwYIKoUDBwEBAQEwCwYJKoUDBwECAQEBBCA0zvTDpCSjdRCERkd6
+            WDA2TF/ABQLp9MPZRl7hMXCVGg==
 
 The following DNSKEY RR stores a DNS zone key for example.net:
 
-      example.net. 86400 IN DNSKEY 256 3 TBA1 TODO
+example.	600	IN	DNSKEY	256 3 23 XkZ6T+qQ9teOMsA/YK+kTzE
+    LhuMPTsYggdy2b+sfzJ6tH9eniziMX3gjMnUZIyrnSIchLjup8xpy+
+		UU5l1Eyjw== ;{id = 13439 (zsk), size = 512b}
 ]]></artwork>
 	</figure>
 	</section>
@@ -164,7 +167,7 @@ The following DNSKEY RR stores a DNS zone key for example.net:
    <xref target="RFC4034"/>.</t>
 
 	<figure><artwork><![CDATA[
-hash = GOSTR3411(data)
+hash = GOSTR3411-2012(data)
 ]]></artwork>
 	</figure>
 	<t>
@@ -177,34 +180,34 @@ hash = GOSTR3411(data)
    RFC 4490 <xref target="RFC7091"/>.</t>
 
 	<section title="RRSIG RR Example" ><t>
-   With the private key from TODO,
-   consisting of one A record:</t>
+   With the private key from this document,
+   consisting of one MX record:</t>
 
 	<t><list hangIndent="3" style="hanging"><t>
-      www.example.net. 3600 IN A 192.0.2.1</t>
+example.	600	IN	MX	10 mail.example.</t>
 
 	</list>
 	</t>
 
 	<t>
-   Setting the inception date to 2020-01-01 00:00:00 UTC and the
-   expiration date to 2030-01-01 00:00:00 UTC, the following signature
+   Setting the inception date to 2020-01-04 17:25:26 UTC and the
+   expiration date to 2020-02-01 17:25:26 UTC, the following signature
    RR will be valid:</t>
 
 	<t><list style="empty" hangIndent="2">
-	<t><list style="hanging" hangIndent="31"><t hangText="www.example.net. 3600 IN RRSIG A TBA1 TBA2 3600 20300101000000 (">
+	<t><list style="hanging" hangIndent="31"><t hangText="example.  600 IN  RRSIG MX 23 1 600 20200201172526 (">
 	<vspace blankLines="0"/>
-	TODO
+20200104172526 13439 example. EtrsAEGsNRf12HKjwNTg8U2HZ5JOSo34UaTcshoE1kwd5Ror4I7zltmWAgd4b9OBn80tsajtL0Vuf45u8kEAgA==
 	</t>
 
-	</list>
+	</list>)
 	</t>
 
 	</list>
 	</t>
 
 	<t>
-   Note: The ECC-GOST signature algorithm uses random data, so the
+   Note: The ECC-GOST12 signature algorithm uses random data, so the
    actual computed signature value will differ between signature
    calculations.</t>
 
@@ -220,12 +223,12 @@ hash = GOSTR3411(data)
 
 	<section title="DS RR Example" ><t><list style="hanging" hangIndent="3"><t hangText="For Key Signing Key (KSK):">
 	<vspace blankLines="1"/>
-	TODO
+example.	IN	DNSKEY	257 3 23 hP3ISWPT8ehEEut8ozbqPcmbTAQK0jce7MHmK0geOiRokFALGwsMrBf0H0AK2qrVJCWCJL+50v9UNZAS5mE70g== ;{id = 7574 (ksk), size = 512b}
 	</t>
 
 	<t hangText="The DS RR will be">
 	<vspace blankLines="1"/>
-	TODO
+example.	IN	DS	7574 23 5 990f40dc548a4dbcb4b80a0760f194ac0cc18484578834c1ac1f749f70c84103
 	</t>
 
 	</list>
@@ -293,7 +296,7 @@ hash = GOSTR3411(data)
 	<figure><artwork><![CDATA[
                                    Zone    Trans.
  Value  Algorithm         Mnemonic Signing Sec.  References   Status
-  TBA1    GOST R 34.10-2012 ECC-GOST     Y   *     RFC 6986    OPTIONAL
+  TBA1  GOST R 34.10-2012 ECC-GOST12    Y   *    RFC 6986     OPTIONAL
 ]]></artwork>
 	</figure>
 	<t>
@@ -306,6 +309,9 @@ hash = GOSTR3411(data)
      TBA2    GOST R 34.11-2012  OPTIONAL
 ]]></artwork>
 	</figure>
+	<t>This paragraph shoud be removed before the publication of RFC:
+	For the purpose of example computations, the following values were used:
+	TBA1 = 23, TBA2 = 5.</t>
 	</section>
 
 	<section title="Acknowledgments" ><t>
