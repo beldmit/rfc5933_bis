@@ -11,8 +11,9 @@
 <!ENTITY RFC6986 SYSTEM "https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.6986.xml">
 <!ENTITY RFC7091 SYSTEM "https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.7091.xml">
 <!ENTITY RFC7836 SYSTEM "https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.7836.xml">
+<!ENTITY RFC8174 SYSTEM "https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.8174.xml">
 ]>
-<rfc docName="draft-belyavskiy-rfc5933-bis-00">
+<rfc docName="draft-belyavskiy-rfc5933-bis-00" category="std" ipr="trust200902" >
 	<?rfc strict="yes"?>
 	<?rfc compact="yes"?>
 	<?rfc subcompact="no"?>
@@ -77,10 +78,11 @@
    Familiarity with DNSSEC and with GOST signature and hash algorithms
    is assumed in this document.</t>
 
-	<section title="Terminology" ><t>
-   The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
-   "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this
-   document are to be interpreted as described in <xref target="RFC2119"/>.</t>
+	<section title="Terminology" >
+  <t> The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT",
+  "RECOMMENDED", "NOT RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be interpreted
+  as described in BCP 14 <xref target="RFC2119" /> <xref target="RFC8174" /> when, and only when,
+  they appear in all capitals, as shown here.</t>
 
 	</section>
 
@@ -117,7 +119,7 @@
 	<section title="Using a Public Key with Existing Cryptographic Libraries" ><t>
    At the time of this writing, existing GOST-aware cryptographic
    libraries are capable of reading GOST public keys via a generic X509
-   API if the key is encoded according to RFC 4491 <xref target="RFC7091"/>,
+   API if the key is encoded according to RFC 7091 <xref target="RFC7091"/>,
    Section 2.3.2.</t>
 
 	<t>
@@ -176,7 +178,7 @@ hash = GOSTR3411-2012(data)
 	<t>
    The signature is calculated from the hash according to the
    GOST R 34.10-2012 standard, and its wire format is compatible with
-   RFC 4490 <xref target="RFC7091"/>.</t>
+   RFC 7091 <xref target="RFC7091"/>.</t>
 
 	<section title="RRSIG RR Example" ><t>
    With the private key from this document,
@@ -266,7 +268,7 @@ example.	IN	DS	7574 23 5 990f40dc548a4dbcb4b80a0760f194ac0cc18484578834c1ac1f749
 	</section>
 
 	<section title="Support for NSEC3 Denial of Existence"><t>
-   Any DNSSEC-GOST implementation MUST support both NSEC <xref target="RFC4035"/> and
+   Any DNSSEC-GOST implementations MUST support both NSEC <xref target="RFC4035"/> and
    NSEC3 <xref target="RFC5155"/>.</t>
 
 	</section>
@@ -301,7 +303,7 @@ example.	IN	DS	7574 23 5 990f40dc548a4dbcb4b80a0760f194ac0cc18484578834c1ac1f749
 	<t>
    This document updates the RFC 4034 Digest Types assignment
    (<xref target="RFC4034"/>, Section A.2) by adding the value and status for the
-   GOST R 34.11-94 algorithm:</t>
+   GOST R 34.11-2012 algorithm:</t>
 
 	<figure><artwork><![CDATA[
    Value   Algorithm        Status
@@ -340,6 +342,7 @@ example.	IN	DS	7574 23 5 990f40dc548a4dbcb4b80a0760f194ac0cc18484578834c1ac1f749
 	&RFC6986;
 	&RFC7091;
 	&RFC7836;
+	&RFC8174;
 	</references>
 	<references title="Informative References">
 	&RFC4509;
