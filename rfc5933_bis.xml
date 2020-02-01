@@ -152,9 +152,9 @@ Gost12Asn1: MD4CAQAwFwYIKoUDBwEBAQEwCwYJKoUDBwECAQEBBCA0zvTDpCSjdRCERkd6
 
 The following DNSKEY RR stores a DNS zone key for example.net:
 
-example.	600	IN	DNSKEY	256 3 23 XkZ6T+qQ9teOMsA/YK+kTzE
+example.  600  IN  DNSKEY  256 3 23 XkZ6T+qQ9teOMsA/YK+kTzE
     LhuMPTsYggdy2b+sfzJ6tH9eniziMX3gjMnUZIyrnSIchLjup8xpy+
-		UU5l1Eyjw== ;{id = 13439 (zsk), size = 512b}
+    UU5l1Eyjw== ;{id = 13439 (zsk), size = 512b}
 ]]></artwork>
 	</figure>
 	</section>
@@ -219,8 +219,7 @@ example.	600	IN	MX	10 mail.example.</t>
 	<section title="DS Resource Records"><t>
    The GOST R 34.11-2012 digest algorithm is denoted in DS RRs by the
    digest type TBA2.  The wire format of a digest value is compatible with
-   RFC 6986 <xref target="RFC6986"/>, that is, the digest is in little-endian
-   representation.</t>
+   RFC 6986 <xref target="RFC6986"/>.</t>
 
 	<section title="DS RR Example" ><t><list style="hanging" hangIndent="3"><t hangText="For Key Signing Key (KSK):">
 	<vspace blankLines="1"/>
@@ -291,9 +290,12 @@ example.	IN	DS	7574 23 5 990f40dc548a4dbcb4b80a0760f194ac0cc18484578834c1ac1f749
 	</section>
 
 	<section title="IANA Considerations" ><t>
-   This document updates the IANA registry "DNS Security Algorithm Numbers" <xref target="RFC4034"/>.  The following entries have been added to the
-   registry:</t>
-
+    This document updates the IANA registry
+  <eref target="https://www.iana.org/assignments/dns-sec-alg-numbers/dns-sec-alg-numbers.xhtml#dns-sec-alg-numbers-1">
+    "DNS Security Algorithm Numbers"
+  </eref>
+    The following entries have been added to the registry:
+  </t>
 	<figure><artwork><![CDATA[
                                    Zone    Trans.
  Value  Algorithm         Mnemonic Signing Sec.  References   Status
@@ -301,10 +303,12 @@ example.	IN	DS	7574 23 5 990f40dc548a4dbcb4b80a0760f194ac0cc18484578834c1ac1f749
 ]]></artwork>
 	</figure>
 	<t>
-   This document updates the RFC 4034 Digest Types assignment
-   (<xref target="RFC4034"/>, Section A.2) by adding the value and status for the
-   GOST R 34.11-2012 algorithm:</t>
-
+    This document updates the RFC IANA registry
+  <eref target="https://www.iana.org/assignments/ds-rr-types/ds-rr-types.xhtml#ds-rr-types-1">
+    "Delegation Signer (DS) Resource Record (RR) Type Digest Algorithms"
+  </eref>
+    by adding an entry for the GOST R 34.11-2012 algorithm:
+  </t>
 	<figure><artwork><![CDATA[
    Value   Algorithm        Status
      TBA2    GOST R 34.11-2012  OPTIONAL
