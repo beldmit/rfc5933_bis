@@ -13,7 +13,7 @@
 <!ENTITY RFC7836 SYSTEM "https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.7836.xml">
 <!ENTITY RFC8174 SYSTEM "https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.8174.xml">
 ]>
-<rfc docName="draft-belyavskiy-rfc5933-bis-00" category="std" ipr="trust200902" >
+<rfc docName="draft-belyavskiy-rfc5933-bis-01" category="std" ipr="trust200902" >
 	<?rfc strict="yes"?>
 	<?rfc compact="yes"?>
 	<?rfc subcompact="no"?>
@@ -47,7 +47,7 @@
         <email>vdolmatov@gmail.com</email>
       </address>
     </author>
-	<date month="January" year="2020" day="15"/>
+	<date month="February" year="2020" day="09"/>
 	<abstract><t>
    This document describes how to produce digital signatures and hash
    functions using the GOST R 34.10-2012 and GOST R 34.11-2012 algorithms
@@ -150,7 +150,7 @@ Algorithm: 23 (ECC-GOST12)
 Gost12Asn1: MD4CAQAwFwYIKoUDBwEBAQEwCwYJKoUDBwECAQEBBCA0zvTDpCSjdRCERkd6
             WDA2TF/ABQLp9MPZRl7hMXCVGg==
 
-The following DNSKEY RR stores a DNS zone key for example.net:
+The following DNSKEY RR stores a DNS zone key for example:
 
 example.  600  IN  DNSKEY  256 3 23 XkZ6T+qQ9teOMsA/YK+kTzE
     LhuMPTsYggdy2b+sfzJ6tH9eniziMX3gjMnUZIyrnSIchLjup8xpy+
@@ -328,7 +328,7 @@ example.	IN	DS	7574 23 5 990f40dc548a4dbcb4b80a0760f194ac0cc18484578834c1ac1f749
 
 	<t>
    The following people provided additional feedback, text, and valuable
-   assistance: TODO
+   assistance: Alexander Venedyukhin, Valery Smyslov, TODO
 	</t>
 
 	</section>
