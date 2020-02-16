@@ -70,7 +70,7 @@
    RFC 4034 describes how to store DNSKEY and RRSIG resource records,
    and specifies a list of cryptographic algorithms to use.  This
    document extends that list with the signature and hash algorithms
-   GOST R 34.10-2012 ([GOST3410], <xref target="RFC7091"/>) and GOST R 34.11-6986
+   GOST R 34.10-2012 ([GOST3410], <xref target="RFC7091"/>) and GOST R 34.11-2012
    ([GOST3411], <xref target="RFC6986"/>), and specifies how to store DNSKEY data and
    how to produce RRSIG resource records with these algorithms.</t>
 
@@ -267,7 +267,7 @@ example.	IN	DS	7574 23 5 990f40dc548a4dbcb4b80a0760f194ac0cc18484578834c1ac1f749
 	</section>
 
 	<section title="Support for NSEC3 Denial of Existence"><t>
-   Any DNSSEC-GOST implementations MUST support both NSEC <xref target="RFC4035"/> and
+   Any DNSSEC-GOST implementation MUST support both NSEC <xref target="RFC4035"/> and
    NSEC3 <xref target="RFC5155"/>.</t>
 
 	</section>
@@ -282,9 +282,9 @@ example.	IN	DS	7574 23 5 990f40dc548a4dbcb4b80a0760f194ac0cc18484578834c1ac1f749
    2**256.</t>
 
 	<t>
-   Currently, the cryptographic resistance of the GOST R 34.11-2012 hash
-   algorithm is estimated as 2**128 operations of computations of a step
-		hash function.
+    Currently, the cryptographic collision resistance of the GOST R 34.11-2012
+    hash algorithm is estimated as 2**128 operations of computations of a step
+    hash function.
 	</t>
 
 	</section>
@@ -299,7 +299,7 @@ example.	IN	DS	7574 23 5 990f40dc548a4dbcb4b80a0760f194ac0cc18484578834c1ac1f749
 	<figure><artwork><![CDATA[
                                    Zone    Trans.
  Value  Algorithm         Mnemonic Signing Sec.  References   Status
-  TBA1  GOST R 34.10-2012 ECC-GOST12    Y   *    RFC 6986     OPTIONAL
+  TBA1  GOST R 34.10-2012 ECC-GOST12    Y   *    RFC TBA     OPTIONAL
 ]]></artwork>
 	</figure>
 	<t>
