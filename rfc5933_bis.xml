@@ -47,7 +47,7 @@
         <email>vdolmatov@gmail.com</email>
       </address>
     </author>
-	<date month="February" year="2020" day="09"/>
+	<date month="March" year="2020" day="10"/>
 	<abstract><t>
    This document describes how to produce digital signatures and hash
    functions using the GOST R 34.10-2012 and GOST R 34.11-2012 algorithms
@@ -96,23 +96,18 @@
    number TBA1.</t>
 
 	<t>
-   The wire format of the public key is compatible with RFC 7091
-   <xref target="RFC7091"/>:</t>
-
-	<t>
-   According to [GOST3410] and <xref target="RFC7091"/>, a public key is a point on the
-   elliptic curve Q = (x,y).</t>
-
-	<t>
-   The wire representation of a public key MUST contain 64 octets, where
-   the first 32 octets contain the little-endian representation of x and
-   the second 32 octets contain the little-endian representation of y.</t>
+According to [GOST3410] and <xref target="RFC7091"/>, a public key is a point on the
+  elliptic curve Q = (x,y). The wire representation of a public key MUST
+  contain 64 octets, where the first 32 octets contain the little-endian
+  representation of x and the second 32 octets contain the little-endian
+  representation of y.
+   </t>
 
 <t>As GOST3410 and GOST3411 allows 2 variants of length of the output hash and signature
 	and many variants of parameters of the digital signature, for the purpose of this 
 	document we use 256-bit variant of the digital signature algorithm, corresponding
-	256-bit variant of the digest algorithm. We also select the only parameters for 
-	the digital signature algorithm, specified as id-tc26-gost-3410-2012-256-paramSetA
+	256-bit variant of the digest algorithm. We select the parameters for 
+	the digital signature algorithm to be id-tc26-gost-3410-2012-256-paramSetA
 	in RFC 7836 <xref target="RFC7836"/>. 
 </t>
 
@@ -239,21 +234,18 @@ example.	IN	DS	7574 23 5 990f40dc548a4dbcb4b80a0760f194ac0cc18484578834c1ac1f749
 	</section>
 
 	<section title="Deployment Considerations"><section title="Key Sizes"><t>
-	According to RFC 7091 <xref target="RFC7091"/> and the decision made about the used variant,
-       	the key size of GOST public keys MUST be 512 bits.</t>
+   The key size of GOST public keys conforming to this specification MUST be 512 bits.</t>
 
 	</section>
 
 	<section title="Signature Sizes"><t>
-   According to the GOST R 34.10-2012 digital signature algorithm
-   specification ([GOST3410], <xref target="RFC7091"/>), the size of a GOST signature
-   for the selected parameters is 512 bits.</t>
+   The size of a GOST signature conforming to this specification MUST be 512 bits.</t>
 
 	</section>
 
 	<section title="Digest Sizes"><t>
-   According to GOST R 34.11-2012 ([GOST3411], <xref target="RFC6986"/>), the size of a
-   GOST digest matching the selected parameters of the signature is 256 bits.</t>
+The size of a GOST digest conforming to this specification MUST be 256 bits.
+</t>
 
 	</section>
 
