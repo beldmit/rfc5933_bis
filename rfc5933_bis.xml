@@ -5,7 +5,6 @@
 <!ENTITY RFC4033 SYSTEM "https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.4033.xml">
 <!ENTITY RFC4034 SYSTEM "https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.4034.xml">
 <!ENTITY RFC4035 SYSTEM "https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.4035.xml">
-<!ENTITY RFC5155 SYSTEM "https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.5155.xml">
 <!ENTITY RFC4509 SYSTEM "https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.4509.xml">
 <!ENTITY RFC5933 SYSTEM "https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.5933.xml">
 <!ENTITY RFC6986 SYSTEM "https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.6986.xml">
@@ -258,12 +257,6 @@ The size of a GOST digest conforming to this specification MUST be 256 bits.
 
 	</section>
 
-	<section title="Support for NSEC3 Denial of Existence"><t>
-   Any DNSSEC-GOST implementation MUST support both NSEC <xref target="RFC4035"/> and
-   NSEC3 <xref target="RFC5155"/>.</t>
-
-	</section>
-
 	</section>
 
 	<section title="Security Considerations">
@@ -334,7 +327,6 @@ The size of a GOST digest conforming to this specification MUST be 256 bits.
 	&RFC4033;
 	&RFC4034;
 	&RFC4035;
-	&RFC5155;
 	&RFC6986;
 	&RFC7091;
 	&RFC7836;
