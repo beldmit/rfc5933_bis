@@ -26,8 +26,9 @@
 	<author fullname="Dmitry Belyavskiy" initials="D." surname="Belyavskiy">
 	<organization>TCINET</organization>
 	<address><postal><street>8 marta st</street>
-	<street>Moscow</street>
-	<street>Russian Federation</street>
+	<city>Moscow</city>
+  <region/>
+	<country>Russian Federation</country>
 	</postal>
 	<phone>+7 916 262 5593</phone>
 	<email>beldmit@gmail.com</email>
