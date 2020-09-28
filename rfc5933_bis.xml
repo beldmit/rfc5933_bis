@@ -12,7 +12,7 @@
 <!ENTITY RFC7836 SYSTEM "https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.7836.xml">
 <!ENTITY RFC8174 SYSTEM "https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.8174.xml">
 ]>
-<rfc docName="draft-ietf-dnsop-rfc5933-bis-01" category="std" ipr="trust200902" >
+<rfc docName="draft-ietf-dnsop-rfc5933-bis-02" category="std" ipr="trust200902" obsoletes="5933">
   <?rfc strict="yes"?>
   <?rfc compact="yes"?>
   <?rfc subcompact="no"?>
@@ -47,7 +47,7 @@
         <email>vdolmatov@gmail.com</email>
       </address>
     </author>
-  <date month="September" year="2020" day="8"/>
+  <date month="September" year="2020" day="28"/>
   <abstract><t>
    This document describes how to produce digital signatures and hash
    functions using the GOST R 34.10-2012 and GOST R 34.11-2012 algorithms
@@ -74,6 +74,10 @@
    (<xref target="RFC6986"/>), and specifies how to store DNSKEY data and
    how to produce RRSIG resource records with these algorithms.</t>
 
+  <t>
+    This document obsoletes RFC5933 <xref target="RFC5933"/>.
+		This document also marks the DNS Security Algorithm GOST R 34.10-2001 as obsolete.
+  </t>
   <t>
    Familiarity with DNSSEC and with GOST signature and hash algorithms
    is assumed in this document.</t>
@@ -290,6 +294,11 @@ Value  Algorithm         Mnemonic  Signing Sec.  References   Status
 TBA1   GOST R 34.10-2012 ECC-GOST12    Y   *     RFC TBA     OPTIONAL
 ]]></artwork>
   </figure>
+	<t>
+   The entry for the Algorithm "GOST R 34.10-2001", number 12 should be updated
+   as such:  Description field should be changed to "GOST R 34.10-2001 (deprecated, see TBA1"
+   and Zone Signing field should be changed to "N".</t>
+
   <t>
     This document updates the RFC IANA registry
     "Delegation Signer (DS) Resource Record (RR) Type Digest Algorithms"
@@ -300,6 +309,9 @@ TBA1   GOST R 34.10-2012 ECC-GOST12    Y   *     RFC TBA     OPTIONAL
    TBA2    GOST R 34.11-2012  OPTIONAL
 ]]></artwork>
   </figure>
+
+  <t>The entry for Value 3, GOST R 34.11-94 should be updated to
+   have its Status changed to '-'.</t>
   <t>This paragraph shoud be removed before the publication of RFC:
   For the purpose of example computations, the following values were used:
   TBA1 = 23, TBA2 = 5.</t>
