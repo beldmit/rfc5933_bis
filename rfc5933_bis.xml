@@ -13,7 +13,7 @@
 <!ENTITY RFC8174 SYSTEM "https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.8174.xml">
 <!ENTITY RFC8624 SYSTEM "https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.8624.xml">
 ]>
-<rfc docName="draft-ietf-dnsop-rfc5933-bis-05" category="info" ipr="trust200902" obsoletes="5933" updates="8624">
+<rfc docName="draft-ietf-dnsop-rfc5933-bis-06" category="info" ipr="trust200902" obsoletes="5933" updates="8624">
   <?rfc strict="yes"?>
   <?rfc compact="yes"?>
   <?rfc subcompact="no"?>
@@ -48,12 +48,13 @@
         <email>vdolmatov@gmail.com</email>
       </address>
     </author>
-  <date month="November" year="2021" day="11"/>
+  <date month="November" year="2021" day="12"/>
   <abstract><t>
    This document describes how to produce digital signatures and hash
    functions using the GOST R 34.10-2012 and GOST R 34.11-2012 algorithms
    for DNSKEY, RRSIG, and DS resource records, for use in the Domain
-   Name System Security Extensions (DNSSEC).</t>
+			  Name System Security Extensions (DNSSEC).</t>
+		  <t>This document obsoletes RFC 5933 and updates RFC 8624.</t>
 
   </abstract>
   </front>
@@ -345,7 +346,7 @@ TBA1   GOST R 34.10-2012 ECC-GOST12    Y   *     RFC TBA     OPTIONAL
 
   <t>
    The following people provided additional feedback, text, and valuable
-   assistance: Alexander Venedyukhin, Valery Smyslov, Tim Wicinski, TODO
+   assistance: Alexander Venedyukhin, Valery Smyslov, Tim Wicinski.
   </t>
 
   </section>
