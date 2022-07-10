@@ -12,8 +12,9 @@
 <!ENTITY RFC7836 SYSTEM "https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.7836.xml">
 <!ENTITY RFC8174 SYSTEM "https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.8174.xml">
 <!ENTITY RFC8624 SYSTEM "https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.8624.xml">
+<!ENTITY RFC9125 SYSTEM "https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.9125.xml">
 ]>
-<rfc docName="draft-ietf-dnsop-rfc5933-bis-07" category="info" ipr="trust200902" obsoletes="5933" updates="8624">
+<rfc docName="draft-ietf-dnsop-rfc5933-bis-08" category="info" ipr="trust200902" obsoletes="5933" updates="8624">
   <?rfc strict="yes"?>
   <?rfc compact="yes"?>
   <?rfc subcompact="no"?>
@@ -48,7 +49,7 @@
         <email>vdolmatov@gmail.com</email>
       </address>
     </author>
-  <date month="November" year="2021" day="12"/>
+  <date month="July" year="2022" day="10"/>
   <abstract><t>
    This document describes how to produce digital signatures and hash
    functions using the GOST R 34.10-2012 and GOST R 34.11-2012 algorithms
@@ -133,9 +134,26 @@ According to RFC 7091 <xref target="RFC7091"/>, a public key is a point on the
 0x03 0x07 0x01 0x01 0x01 0x01 0x30 0x0b
 0x06 0x09 0x2a 0x85 0x03 0x07 0x01 0x02
 0x01 0x01 0x01 0x03 0x43 0x00 0x04 0x40
-</t>
-
+  </t>
   </list>
+  </t>
+
+  <t>
+	  These bytes provide the following ASN.1 structure suitable for parsing by cryptographic toolkits:</t>
+	  <figure><artwork><![CDATA[
+  0  62: SEQUENCE {
+  2   1:   INTEGER 0
+  5  23:   SEQUENCE {
+  7   8:     OBJECT IDENTIFIER '1 2 643 7 1 1 1 1'
+ 17  11:     SEQUENCE {
+ 19   9:       OBJECT IDENTIFIER '1 2 643 7 1 2 1 1 1'
+       :       }
+       :     }
+ 30  32:   OCTET STRING
+]]></artwork>
+  </figure>
+  <t>
+The OIDs in the structure above represent GOsudarstvennyy STandart (GOST) R 34.10-2012 public keys with 256 bits private key length algorithm with Parameter set A for Keyed-Hash Message Authentication Code (HMAC) transformation based on the GOsudarstvennyy STandart (GOST) R 34.11-2012 hash function with 256-bit output according to RFC 7836 <xref target="RFC7836"/> and RFC 9125 <xref target="RFC9125"/>.
   </t>
 
   </section>
@@ -159,6 +177,7 @@ example.  600  IN  DNSKEY  256 3 23 (
     ) ;{id = 13439 (zsk), size = 512b}
 ]]></artwork>
   </figure>
+  <t>Public key can be calculated from the private key using algorithm described in RFC 7091 <xref target="RFC7091"/>.</t>
   </section>
 
   </section>
@@ -244,35 +263,36 @@ example.  IN  DS  7574 23 5 (
   </section>
 
   <section title="Deployment Considerations"><section title="Key Sizes"><t>
-   The key size of GOST public keys conforming to this specification MUST be 512 bits.</t>
+   The key size of GOST public keys conforming to this specification MUST be 512 bits according to RFC 7091 <xref target="RFC7091"/>.</t>
 
   </section>
 
   <section title="Signature Sizes"><t>
-   The size of a GOST signature conforming to this specification MUST be 512 bits.</t>
+   The size of a GOST signature conforming to this specification MUST be 512 bits according to RFC 7091 <xref target="RFC7091"/>.</t>
 
   </section>
 
   <section title="Digest Sizes"><t>
-The size of a GOST digest conforming to this specification MUST be 256 bits.
+The size of a GOST digest conforming to this specification MUST be 256 bits according to RFC 6986 <xref target="RFC6986"/>.
 </t>
 
   </section>
 
   </section>
 
-  <section title="Implementation Considerations"><section title="Support for GOST Signatures"><t>
-   DNSSEC-aware implementations MAY be able to support RRSIG and DNSKEY
-   resource records created with the GOST algorithms as defined in this
-   document.</t>
-
-  </section>
+  <section title="Implementation Considerations">
+  <t>
+  The support of this cryptographic suite in DNSSEC-aware systems is OPTIONAL.  Systems that do not support these algorithms may ignore the RRSIG, DNSKEY and DS records created with them.
+  </t>
+  <t>
+  (To be removed in RFC). To check the correctness of the implementation, authors recommend using OpenSSL 1.1.1 or 3.0.x series, a fork of ldns available at https://github.com/beldmit/ldns, and a reference implementation of GOST crypto algorithms available at https://github.com/gost-engine/engine.
+  </t>
 
   </section>
   <section title="Changes to RFC 5933">
   <t>
-  This document specifies the usage of the signature algorithm GOST R 34.10-2012 
-  and hash algorithm GOST R 34.11-2012 instead of the signature algorithm GOST R 34.10-2001 
+  This document specifies the usage of the signature algorithm GOST R 34.10-2012
+  and hash algorithm GOST R 34.11-2012 instead of the signature algorithm GOST R 34.10-2001
   and hash algorithm GOST R 34.11-94, specified in RFC 5933.
   </t>
   </section>
@@ -354,7 +374,7 @@ TBA1   GOST R 34.10-2012 ECC-GOST12    Y   *     RFC TBA     OPTIONAL
 
   <t>
    The following people provided additional feedback, text, and valuable
-   assistance: Alexander Venedyukhin, Valery Smyslov, Tim Wicinski, Stephane Bortzmeyer.
+   assistance: Alexander Venedyukhin, Michael StJohns, Valery Smyslov, Tim Wicinski, Stephane Bortzmeyer.
   </t>
 
   </section>
@@ -377,6 +397,7 @@ TBA1   GOST R 34.10-2012 ECC-GOST12    Y   *     RFC TBA     OPTIONAL
   <references title="Informative References">
   &RFC4509;
   &RFC5933;
+  &RFC9125;
   </references>
   </back>
 
