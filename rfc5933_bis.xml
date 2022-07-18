@@ -49,6 +49,19 @@
         <email>vdolmatov@gmail.com</email>
       </address>
     </author>
+      <author fullname="Boris Makarenko" initials="B." surname="Makarenko" role="editor">
+      <organization>The Technical center of Internet, LLC</organization>
+      <address>
+        <postal>
+          <street>8 marta str., 1, bld 12</street>
+          <city>Moscow</city>
+          <region/>
+          <code>127083</code>
+          <country>Russian Federation</country>
+        </postal>
+        <email>bmakarenko@tcinet.ru</email>
+      </address>
+    </author>
   <date month="July" year="2022" day="10"/>
   <abstract><t>
    This document describes how to produce digital signatures and hash
